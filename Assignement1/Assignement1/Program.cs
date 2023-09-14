@@ -4,7 +4,16 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            ConstantAglorithmExample ConstantAlgorithm = new ConstantAglorithmExample();
+            LinearAlgorithmExample LinearAlgorithm = new LinearAlgorithmExample(20);
+            QuadraticAlgorithmExample QuadraticAlgorithm = new QuadraticAlgorithmExample();
+
+            ConstantAlgorithm.DoAlgorithm();
+            LinearAlgorithm.DoAlgorithm();
+            QuadraticAlgorithm.DoAlgorithm();
+
+            Console.WriteLine("Algorithms done");
+
         }
     }
 }
