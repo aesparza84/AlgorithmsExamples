@@ -15,9 +15,13 @@ namespace Assignement1
         }
         public void DoAlgorithm()
         {
-            //A simple linear algorithm
-            //that counts up to the number entered
-            //No negatives
+            Console.WriteLine("Linear");
+
+            ///A simple linear algorithm
+            ///that counts up to the number entered.
+            ///If you enter 4, there will be 4 print calls, and so on with other numbers.
+            ///
+
             if (number < 0)
             {
                 number = 10;
@@ -34,6 +38,7 @@ namespace Assignement1
                     Console.WriteLine("Counting: " + (i+1));
                 }
             }
+            Console.WriteLine("-------------------------------------------");
         }
     }
 }

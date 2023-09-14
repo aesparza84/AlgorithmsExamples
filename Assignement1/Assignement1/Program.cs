@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            ConstantAglorithmExample ConstantAlgorithm = new ConstantAglorithmExample();
+            ConstantAglorithmExample ConstantAlgorithm = new ConstantAglorithmExample(12);
             LinearAlgorithmExample LinearAlgorithm = new LinearAlgorithmExample(20);
             QuadraticAlgorithmExample QuadraticAlgorithm = new QuadraticAlgorithmExample();
 

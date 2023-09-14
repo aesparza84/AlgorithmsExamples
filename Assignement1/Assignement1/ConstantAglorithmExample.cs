@@ -8,20 +8,29 @@ namespace Assignement1
 {
     public class ConstantAglorithmExample : IAlgorithm
     {
-        private int ArraySize;
         private int[] Array;
 
         public ConstantAglorithmExample(int N)
         {
-            ArraySize = N;
-            Array= new int[ArraySize];
+            ///We create an array of 'N' length using
+            ///the constructor. We fill the array with 5's.
+
+            Array= new int[N];
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Array[i] = 5;
+            }
         }
         public void DoAlgorithm()
         {
-            for (int i = 0; i < Array.Length; i++)
-            {
+            Console.WriteLine("Constant");
 
-            }
+            ///No matter the size of the array, the method
+            ///will always return the length of the array.
+
+            int arrLength = Array.Length;
+            Console.WriteLine("Length of array: "+arrLength);
+            Console.WriteLine("-------------------------------------------");
 
         }
     }
