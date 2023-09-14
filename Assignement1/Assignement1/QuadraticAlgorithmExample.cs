@@ -19,7 +19,12 @@ namespace Assignement1
             myArray[3] = "D";
             myArray[4] = "E";
         }
-        public void DoAlgorithm()
+
+        /// <summary>
+        /// This is a seperate algorithm, it returns N^N print calls
+        /// based on the array length. NOT Quadratic.
+        /// </summary>
+        public void DoAlgorithmTwo()
         {
             Console.WriteLine("Quadratic");
 
@@ -49,6 +54,32 @@ namespace Assignement1
             Console.WriteLine("Count "+count);
             Console.WriteLine("(Scroll back to top)");
             Console.WriteLine("----------------------------------------------");
+        }
+
+        public void DoAlgorithm()
+        {
+            ///This is a quadratic time aglorithm. We have 5 elements in our array.
+            ///When this runs it iterates through, BUT at each element it prints 
+            ///out the entire array but in reverse.
+            ///We print out A, then the array reversed.
+            ///B, then the array reversed, and so on.
+            ///This returns (array length)^2 print calls.
+
+
+            Console.WriteLine("Quadratic");
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine(" "+myArray[i]);
+                for (int j = myArray.Length; j > 0; j--)
+                {
+                    Console.WriteLine("  "+myArray[j - 1]);
+                    count++;
+                }
+            }
+
+            Console.WriteLine("Count "+count);
+
         }
     }
 }
