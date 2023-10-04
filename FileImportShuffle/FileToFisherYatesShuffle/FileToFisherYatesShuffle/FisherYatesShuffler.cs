@@ -33,8 +33,11 @@ namespace FileToFisherYatesShuffle
 
             for (int i = array.Length - 1; i > 0; i--)
             {     
-                int j = newRandom(i);
-                array.swapPositions(i, j);
+                int j = newRandom(i); //generates a random number to use
+
+                object tempObject = array[i]; //store current index value.
+                array[i] = array[j];          //reassign current index value.
+                array[j] = tempObject;        //assign the index we swapped with.
             }
 
 
@@ -46,12 +49,6 @@ namespace FileToFisherYatesShuffle
         {
             return rng.Next(0, n + 1); //We get a random number FROM 0 up to the current index.
         }
-
-        private static void swapPositions(this object[] array, int i, int j)
-        {
-            object tempObject = array[i]; //store current index value.
-            array[i] = array[j];          //reassign current index value.
-            array[j] = tempObject;        //assign the index we swapped with.
-        }
+        
     }
 }
