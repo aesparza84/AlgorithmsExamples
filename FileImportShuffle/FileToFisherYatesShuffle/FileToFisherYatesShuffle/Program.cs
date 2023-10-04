@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            ReadingFile rf= new ReadingFile();
+
+            rf.letters.FisherShuffle();
+            Console.ReadLine();
         }
     }
 }
