@@ -14,6 +14,7 @@ namespace FileToFisherYatesShuffle
             {
                 Console.Write($"{passedArray[i]} ");
             }
+            Console.WriteLine();
         }
     }
 }
