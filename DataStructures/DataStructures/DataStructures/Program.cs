@@ -21,7 +21,12 @@ namespace DataStructures
             ///Comment out to not create stack.
                 //StackExample newStack = new StackExample();
 
-
+            ///The QueueExample class demonstrates properties of the Queue.
+            ///This demonostrates the Queues's FIFO property of handling data.
+            ///Go into class to see more.
+            ///
+            ///Comment out to not create Queue
+                //QueueExample newQueue = new QueueExample();
 
         }
     }
