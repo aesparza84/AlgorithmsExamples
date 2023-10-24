@@ -28,6 +28,45 @@ namespace DataStructures
             ///Comment out to not create Queue
                 //QueueExample newQueue = new QueueExample();
 
+            //ArrayExample newArray = new ArrayExample(); 
+
+            int[] arrA = { 1, 2, 3, 4, 5, 6 };
+
+            bool checkConsecutive(int[] passedArray)
+            {
+                bool doneChecking = false;
+                int index = 0;
+                while (!doneChecking)
+                {
+                    for (int i = 0; i < passedArray.Length; i++)
+                    {
+                        index = i;
+                        if (i != passedArray.Length-1)
+                        {
+                            if (MathF.Abs(passedArray[i] - passedArray[i + 1]) == 1)
+                            {
+
+                            }
+                            else 
+                            {
+                                doneChecking = true;
+                            }
+                        }
+                        else
+                        { doneChecking = true; }
+                    }
+                }
+
+                if (index + 1 == arrA.Length)
+                {
+                    return true;
+                }
+                else { return false; }
+                
+                
+            }
+
+            checkConsecutive(arrA);
         }
     }
 }
