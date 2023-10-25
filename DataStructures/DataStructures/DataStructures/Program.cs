@@ -12,7 +12,9 @@ namespace DataStructures
             ///     Weak for smaller data sets. 
             ///     
             ///Comment out to not create Hash Table.
-            //HashTableExample newTable = new HashTableExample();
+            ///
+            HashTableExample newTable = new HashTableExample();
+
 
             ///The StackExample class demonstrates how a stack:
             ///takes in elements, outputs its elements.
@@ -20,21 +22,27 @@ namespace DataStructures
             ///
             ///The stack property of LIFO (Last In First Out) is shown
             ///Comment out to not create Stack.
+            ///
             //StackExample newStack = new StackExample();
+
 
             ///The QueueExample class demonstrates properties of the Queue.
             ///This shows the Queues's FIFO property of handling data.
             ///Go into class to see more.
             ///
             ///Comment out to not create Queue
+            ///
             //QueueExample newQueue = new QueueExample();
+
 
             ///The ArrayExample class demonstrates the use of an array to store elements.
             ///This shows how an array takes in data and how it iterates through its elements.
             ///Go into class to see more.
             ///
             ///Comment out to not create Array
+            ///
             //ArrayExample newArray = new ArrayExample(); 
+
 
 
             //---Key notes about the data structures---//
