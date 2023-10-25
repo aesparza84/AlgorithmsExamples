@@ -63,6 +63,6 @@ This week we explored different types of data structures such as Hash tables, Ar
             
             An example use could be handling web requests, where you would want to handle them in the order
             that they were recieved.
-            ///
-            ///CONS: There is no random access, so searching for where an item is or if it contains an item
-            ///is not ideal with Queues as you would need to convert to an array.
+            
+            CONS: There is no random access, so searching for where an item is or if it contains an item
+            is not ideal with Queues as you would need to convert to an array.
