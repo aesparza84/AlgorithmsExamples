@@ -59,7 +59,7 @@ This week we explored different types of data structures such as Hash tables, Ar
             PRO: Very similar to Stacks, all operations take O(1) time to perform.
             
             Queues, unlike stacks, follow the FIFO method (First In First Out).
-            The First item to enter the list is the First item to be output.
+            The First item to enter the queue is the First item to leave the queue.
             
             An example use could be handling web requests, where you would want to handle them in the order
             that they were recieved.
