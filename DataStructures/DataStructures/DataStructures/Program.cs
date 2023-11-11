@@ -13,7 +13,7 @@ namespace DataStructures
             ///     
             ///Comment out to not create Hash Table.
             ///
-            HashTableExample newTable = new HashTableExample();
+            //HashTableExample newTable = new HashTableExample();
 
 
             ///The StackExample class demonstrates how a stack:
