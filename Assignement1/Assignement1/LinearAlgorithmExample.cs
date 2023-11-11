@@ -9,6 +9,8 @@ namespace Assignement1
     public class LinearAlgorithmExample : IAlgorithm
     {
         private int number;
+     
+        //Use constructor to pass length you want for Array;
         public LinearAlgorithmExample(int N) 
         {
             this.number = N;
@@ -19,7 +21,7 @@ namespace Assignement1
 
             ///A simple linear algorithm
             ///that counts up to the number entered.
-            ///If you enter 4, there will be 4 print calls, and so on with other numbers.
+            ///If you enter 4, there will be 4 print calls. Same with other numbers.
             ///
 
             if (number < 0)

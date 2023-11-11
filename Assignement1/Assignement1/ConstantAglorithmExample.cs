@@ -26,7 +26,7 @@ namespace Assignement1
             Console.WriteLine("Constant");
 
             ///No matter the size of the array, the method
-            ///will always return the length of the array.
+            ///will always return the length of the array in one step.
 
             int arrLength = Array.Length;
             Console.WriteLine("Length of array: "+arrLength);
