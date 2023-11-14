@@ -10,6 +10,16 @@
             ///Heap
             ///Quick
             ///Merge
+            ///
+
+            ///This demonstrates the 'Bubble Sort' method
+            ///Very inefficient
+            BubbleSort bubble = new BubbleSort();
+            //bubble.Sort();
+
+            Insertion insertionSort = new Insertion();
+            insertionSort.Sort();
+
         }
     }
 }
