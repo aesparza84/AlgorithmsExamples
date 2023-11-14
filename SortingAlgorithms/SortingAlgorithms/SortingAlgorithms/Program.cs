@@ -4,9 +4,10 @@
     {
         static void Main(string[] args)
         {
-            ///Bubble
-            ///Insertion
-            ///Selection
+            ///Bubble --
+            ///Insertion --
+            ///Selection --
+            ///
             ///Heap
             ///Quick
             ///Merge
@@ -18,7 +19,13 @@
             //bubble.Sort();
 
             Insertion insertionSort = new Insertion();
-            insertionSort.Sort();
+            //insertionSort.Sort();
+
+            SelectionSort select = new SelectionSort();
+            //select.Sort();
+
+            QuickSort quick = new QuickSort();
+            quick.Sort();
 
         }
     }
