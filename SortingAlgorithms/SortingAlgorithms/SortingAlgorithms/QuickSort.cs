@@ -11,10 +11,17 @@ namespace SortingAlgorithms
         private int[] nums;
 
         private int Pivot;
-        private int pivotIndex;
+        private int partitionIndex;
+
+        private int currentIndex;
+        private int swapIndex, prevSwap;
+        private int tempSpot;
+       
         public QuickSort() 
         {
-            nums = new int[] { 5, 2, 76, 3, 11, 98, 9, 7, 21, 6 };
+            GetScoresFromFile();
+            //nums = new int[] { 5, 2, 76, 3, 11, 98, 9, 7, 21, 6 };
+            nums = new int[] { 7,2,1,6,8,5,3,4};
         }
 
         /// <summary>
@@ -27,10 +34,93 @@ namespace SortingAlgorithms
         /// </summary>
         public void Sort()
         {
-            for (int i = 0; i < nums.Length; i++)
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+            //    Console.Write($"{nums[i]} ");
+            //}
+            //Console.WriteLine();
+
+            Pivot = scores.Length-1;
+            //PartitionAndGetIndex(nums, 0, Pivot);
+
+            quickSort(scores, 0, Pivot);
+
+            PrintArray(scores);
+
+        }
+
+        private void quickSort(int[] array, int LowIndex, int HighIndex)
+        {
+            //This lets us know if the sub-array has 1 element. 
+            if (LowIndex < HighIndex)
             {
-                pivotIndex = nums[nums.Length - 1];
-                Pivot = nums[pivotIndex];
+                ///This partitions the array from the passed Pivot.
+                /// Everything to the left (of Pivot) < Pivot
+                ///,Everything to the right(of Pivot) > Pivot
+                ///
+                /// Also returns index of the partioning Pivot
+                ///
+                partitionIndex = PartitionAndGetIndex(array, LowIndex, HighIndex);
+
+                ///Recursively, we call this funtion again to sort
+                ///both the left and right side of the partitions
+                ///
+
+                //array, from [LowIndex] -> [partitionIndex-1]
+                quickSort(array, LowIndex, partitionIndex - 1);
+
+                //array, from [partitionIndex+1] -> [HighIndex]
+                quickSort(array, partitionIndex + 1, HighIndex);
+            }            
+        }
+
+        private int PartitionAndGetIndex(int[] array, int LowIndex, int HighIndex)
+        {
+            currentIndex= LowIndex;
+            swapIndex = -1;
+
+            for (int i = 0; i < HighIndex+1; i++)
+            {
+                currentIndex = i;
+                prevSwap = swapIndex;
+
+                //Checks if 'index value <= pivot value'
+                //We don't need to swap if less than Pivot Value.
+                if (array[currentIndex] <= array[HighIndex])
+                {
+                    if (swapIndex < 0)
+                    {
+                        swapIndex = 0;
+                    }
+                    else { swapIndex++; }
+
+                }
+
+                //if index is ahead of swap, Swap positions
+                if (swapIndex != prevSwap && currentIndex > swapIndex)
+                {
+                    tempSpot = array[currentIndex];
+                    array[currentIndex] = array[swapIndex];
+                    array[swapIndex] = tempSpot;
+
+                    if (currentIndex == array.Length - 1)
+                    {
+                        partitionIndex = swapIndex;
+                    }
+                }
+
+                //PrintArray(array);
+            }
+
+            return swapIndex;
+            //Console.WriteLine($"{Pivot} is at {partitionIndex}");
+        }
+
+        private static void PrintArray(int[] array)
+        {
+            for (int k = 0; k < array.Length; k++)
+            {
+                Console.WriteLine($"{array[k]} ");
             }
         }
     }

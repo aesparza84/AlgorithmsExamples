@@ -25,7 +25,7 @@
             //select.Sort();
 
             QuickSort quick = new QuickSort();
-            quick.Sort();
+            //quick.Sort();
 
         }
     }
