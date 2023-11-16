@@ -9,7 +9,7 @@
             ///Selection --
             ///
             ///Heap
-            ///Quick
+            ///Quick --
             ///Merge
             ///
 
@@ -27,6 +27,8 @@
             QuickSort quick = new QuickSort();
             //quick.Sort();
 
+            MergeSort merge= new MergeSort();
+            merge.Sort();
         }
     }
 }
