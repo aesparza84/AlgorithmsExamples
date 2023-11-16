@@ -10,7 +10,7 @@
             ///
             ///Heap
             ///Quick --
-            ///Merge
+            ///Merge --
             ///
 
             ///This demonstrates the 'Bubble Sort' method
@@ -28,7 +28,7 @@
             //quick.Sort();
 
             MergeSort merge= new MergeSort();
-            merge.Sort();
+            //merge.Sort();
         }
     }
 }

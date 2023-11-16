@@ -9,9 +9,8 @@ namespace SortingAlgorithms
     public class MergeSort:ScoreSorting, ISortable
     {
         private int[] nums;
-        private int[] ?halfOne;
-        private int[] ?halfTwo;
-        private int[] scratchArray;
+        //private int[] ?halfOne;
+        //private int[] ?halfTwo;
 
         private int midPoint;
         private int remainingIndices;
@@ -20,7 +19,6 @@ namespace SortingAlgorithms
             GetScoresFromFile();
             nums = new int[] { 7, 2, 1, 6, 8, 5, 3, 9, 4};
 
-            scratchArray= new int[nums.Length];
             //scratchArray= new int[scores.Length];
         }
 
@@ -32,55 +30,51 @@ namespace SortingAlgorithms
             ///back as 1 sorted array.
             ///
 
-            mergeSort(nums, scratchArray, 0, nums.Length-1);
+            mergeSort(scores,0, scores.Length-1);
             //mergeSort(nums, scratchArray, 0, scores.Length-1);
+
+            for (int i = 0; i < scores.Length; i++)
+            {
+                Console.WriteLine(scores[i]);
+            }
 
         }
 
-        private void mergeSort(int[] array, int[] scratch, int LowIndex, int HighIndex)
+        private void mergeSort(int[] array,int LowIndex, int HighIndex)
         {
-            if (LowIndex == HighIndex)
+            //We check if the passed array is only 1 element
+            if (array.Length <= 1)
             {
                 return;
             }
 
             //Breaks array into 2 halves
-            midPoint = (LowIndex+HighIndex) / 2;
+            midPoint = (array.Length) / 2;
+            remainingIndices = array.Length - midPoint; //This is in case we get odd length arrays
+
+            int[] halfOne = new int[midPoint];
+            int[] halfTwo = new int[remainingIndices];
+
+            //Fills the left half of array with elementes from '0 -> Midpoint'
+            for (int i = 0; i < midPoint; i++)
+            {
+                halfOne[i] = array[i];
+            }
+
+            //Fills the right half of array with elementes from 'Midpoint -> End'
+            for (int i = midPoint; i < array.Length; i++)
+            {
+                halfTwo[i - midPoint] = array[i];
+            }
+
 
             //Recursively call MergeSort to sort halves
-            mergeSort(array, scratch, LowIndex, midPoint);
-            mergeSort(array, scratch, midPoint+1, HighIndex);
+            mergeSort(halfOne, 0, halfOne.Length-1);
+            mergeSort(halfTwo, 0, halfTwo.Length-1);
 
             //Merge the halves
-            int leftIndex = LowIndex;
-            int rightIndex = midPoint+1;
-            int scratchIndex = leftIndex;
-
-            while ( (leftIndex <= midPoint) && (rightIndex <= HighIndex) ) 
-            {
-                if (array[leftIndex] <= array[rightIndex])
-                {
-                    scratch[scratchIndex] = array[leftIndex];
-                    leftIndex++;
-                }
-                else
-                {
-                    scratch[scratchIndex] = array[rightIndex];
-                    rightIndex++;
-                }
-            }
-
-            //Finish copying whichever half is not empty
-            for (int i = leftIndex; i < midPoint; i++)
-            {
-                scratch[scratchIndex] = array[i];
-                scratchIndex++;
-            }
-
-            for (int i = rightIndex; i < HighIndex; i++)
-            {
-
-            }
+            //MergeHalves(array, scratch, LowIndex, HighIndex);
+            MergeArrays(array, halfOne, halfTwo);
 
 
             #region Old inputs
@@ -109,13 +103,85 @@ namespace SortingAlgorithms
             #endregion
         }
 
-        public static void PrintArray(int[] array)
+        private void MergeArrays(int[] array, int[] left, int[] right)
         {
-            for (int k = 0; k < array.Length; k++)
+            int leftIndex = 0;
+            int rightIndex = 0;
+            int mainIndex = 0;
+
+            while ( (leftIndex < left.Length) && (rightIndex < right.Length))
             {
-                Console.WriteLine($"{array[k]} ");
+                if (left[leftIndex] < right[rightIndex])
+                {
+                    array[mainIndex] = left[leftIndex];
+                    leftIndex++;
+                }
+                else 
+                {
+                    array[mainIndex] = right[rightIndex];
+                    rightIndex++;
+                }
+                mainIndex++;
             }
-            Console.WriteLine();
+
+            //Finish copying whichever half is not empty
+
+            //In case there are any elements still in Left half (Everything from Right half was sorted)
+            while (leftIndex < left.Length)
+            {
+                array[mainIndex] = left[leftIndex];
+                leftIndex++;
+                mainIndex++;
+            }
+
+            //In case there are any elements still in Right half (Everything from Left half was sorted)
+            while (rightIndex < right.Length)
+            {
+                array[mainIndex] = right[rightIndex];
+                rightIndex++;
+                mainIndex++;
+            }
+
+        }
+
+        private void MergeHalves(int[] array, int[] scratch, int LowIndex, int HighIndex)
+        {
+            ///From the MergeSort pseudocode
+
+            //int leftIndex = LowIndex;
+            //int rightIndex = midPoint + 1;
+            //int scratchIndex = leftIndex;
+
+            //while ((leftIndex <= midPoint) && (rightIndex <= HighIndex))
+            //{
+            //    if (array[leftIndex] <= array[rightIndex])
+            //    {
+            //        scratch[scratchIndex] = array[leftIndex];
+            //        leftIndex++;
+            //    }
+            //    else
+            //    {
+            //        scratch[scratchIndex] = array[rightIndex];
+            //        rightIndex++;
+            //    }
+            //}
+
+
+            ////Finish copying whichever half is not empty
+            //for (int i = leftIndex; i < midPoint; i++)
+            //{
+            //    scratch[scratchIndex] = array[i];
+            //    scratchIndex++;
+            //}
+            //for (int i = rightIndex; i < HighIndex; i++)
+            //{
+            //    scratch[scratchIndex] = array[i];
+            //    scratchIndex++;
+            //}
+            //for (int i = LowIndex; i < HighIndex; i++)
+            //{
+            //    array[i] = scratch[i];
+            //}
         }
     }
 }
