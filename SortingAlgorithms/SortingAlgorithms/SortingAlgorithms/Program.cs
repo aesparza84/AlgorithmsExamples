@@ -29,6 +29,9 @@
 
             MergeSort merge= new MergeSort();
             //merge.Sort();
+
+            HeapSort heap = new HeapSort();
+            heap.Sort();
         }
     }
 }
