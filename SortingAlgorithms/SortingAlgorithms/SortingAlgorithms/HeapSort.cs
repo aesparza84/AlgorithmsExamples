@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,9 @@ namespace SortingAlgorithms
     public class HeapSort: ScoreSorting, ISortable
     {
         private int[] nums;
+        private bool inHeap;
+
+        int swapSpot, rootValue;
         public HeapSort()
         {
             GetScoresFromFile();
@@ -17,8 +21,7 @@ namespace SortingAlgorithms
 
         public void Sort()
         {
-            //This is a max heap, so we know the first element is the greatest
-            MakeHeap(nums);
+            HeapSorting(nums);
 
             for (int i = 0; i < nums.Length; i++)
             {
@@ -26,8 +29,23 @@ namespace SortingAlgorithms
             }
         }
 
-        private void MakeHeap(int[] array)
+        private void HeapSorting(int[] array)
         {
+            int tempSpot;
+            //This is a max heap, so we know the first element is the greatest
+            MakeHeap(array);
+            RemoveTopItem(array);
+            for (int i = array.Length-1; i > 0; i--)
+            {
+                tempSpot = array[0];
+                array[0] = array[i];
+                array[i] = tempSpot;
+            }
+
+        }
+
+        private void MakeHeap(int[] array)
+        { 
             int index = 0;
             int tempSpot = 0;
             int parent = 0;
@@ -64,54 +82,63 @@ namespace SortingAlgorithms
 
             ///Save the 'root' element.
             ///Replace the 'root' element with the last element.
-            int n = array[0];
+            ///By this point, we know the greatest element is at the END of the array and sorted.
+            rootValue = array[0];
             array[0] = array[array.Length-1];
 
 
             int index = 0;
 
-            int childOne, childTwo, swapChild;
+            int childOneIndex, childTwoIndex, swapChild;
+            inHeap = false;
 
             //Now we must restore the heap's priority order
-            while (true)
+            while (!inHeap)
             {
                 //Find child indices, not child values
-                childOne = index*2 + 1; 
-                childTwo = index*2 + 2;
+                childOneIndex = (index*2) + 1; 
+                childTwoIndex = (index*2) + 2;
 
-                //If a child is out of index, set index as parent's index
-                if (childOne >= count)
+                //If the children are at the end of the tree, set them to be the parent index
+                if (childOneIndex >= count)
                 {
-                    childOne = index;
+                    childOneIndex = index;
                 }
-
-                if (childTwo >= count)
+                if (childTwoIndex >= count)
                 {
-                    childTwo = index;
+                    childTwoIndex = index;
                 }
 
                 //If the heap is 'heap (priority)' then break
-                if ((array[index] >= array[childOne]) && (array[index] >= array[childTwo]))
+                if ((array[index] >= array[childOneIndex]) && (array[index] >= array[childTwoIndex]))
                 {
                     break;
                 }
 
                 //Get index of child with larger value
-                if (array[childOne] > array[childTwo])
+                if (array[childOneIndex] > array[childTwoIndex])
                 {
-                    swapChild = childOne;
+                    swapChild = childOneIndex;
                 }
                 else
                 {
-                    swapChild = childTwo;
+                    swapChild = childTwoIndex;
                 }
 
                 //Swap with the larger child
-
-            
+                Swap(array, index, swapChild);
+                index = swapChild;            
             }
 
-            return n;
+            //Returns the value we took out at the beginning
+            return rootValue;
+        }
+
+        private void Swap(int[] arr, int i, int j) 
+        {
+            swapSpot = arr[i];
+            arr[i] = arr[j];
+            arr[j] = swapSpot;
         }
     }
 }
