@@ -34,6 +34,11 @@ namespace SortingAlgorithms
             int tempSpot;
             //This is a max heap, so we know the first element is the greatest
             MakeHeap(array);
+
+            for (int i = 0; i < 8; i++)
+            {
+
+            }
             RemoveTopItem(array);
             for (int i = array.Length-1; i > 0; i--)
             {
