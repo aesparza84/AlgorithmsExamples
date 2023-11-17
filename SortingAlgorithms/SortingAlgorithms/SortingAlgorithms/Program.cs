@@ -31,7 +31,7 @@
             //merge.Sort();
 
             HeapSort heap = new HeapSort();
-            heap.Sort();
+            //heap.Sort();
         }
     }
 }

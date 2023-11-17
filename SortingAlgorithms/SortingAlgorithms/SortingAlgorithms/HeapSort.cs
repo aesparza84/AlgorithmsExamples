@@ -35,18 +35,16 @@ namespace SortingAlgorithms
             //This is a max heap, so we know the first element is the greatest
             MakeHeap(array);
 
-            for (int i = 0; i < 8; i++)
-            {
-
-            }
-            RemoveTopItem(array);
             for (int i = array.Length-1; i > 0; i--)
             {
-                tempSpot = array[0];
-                array[0] = array[i];
-                array[i] = tempSpot;
+                array[i] = RemoveTopItem(array, i);
             }
-
+            //for (int i = array.Length-1; i > 0; i--)
+            //{
+            //    tempSpot = array[0];
+            //    array[0] = array[i];
+            //    array[i] = tempSpot;
+            //}
         }
 
         private void MakeHeap(int[] array)
@@ -81,15 +79,15 @@ namespace SortingAlgorithms
             }
         }
 
-        private int RemoveTopItem(int[] array)
+        private int RemoveTopItem(int[] array, int count)
         {
-            int count = array.Length - 1;
+            //int count = array.Length - 1;
 
             ///Save the 'root' element.
             ///Replace the 'root' element with the last element.
             ///By this point, we know the greatest element is at the END of the array and sorted.
             rootValue = array[0];
-            array[0] = array[array.Length-1];
+            array[0] = array[count];
 
 
             int index = 0;
