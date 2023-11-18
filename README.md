@@ -66,3 +66,107 @@ This week we explored different types of data structures such as Hash tables, Ar
             
             CONS: There is no random access, so searching for where an item is or if it contains an item
             is not ideal with Queues as you would need to convert to an array.
+
+## Week 11 - Sorting Algorithms
+This week we viewed different sorting algorithms and created them from their Pseudocode.
+
+### Different sorts
+* Bubble
+*          For bubble sort, we use the fact that 
+           if an array is unsorted then there must be adjacent elements
+           that are out of order.
+           
+          We loop through the array and swap adjacent elements that are out of 
+          order until there are no more out of order elements.
+
+          Not ideal for large data sets
+          
+          Runtime
+          Best case:  O( n^2 )
+          Worst case: O( n^2 )
+
+       Pseudocode, from Essentials Algorithms 
+       Bubblesort(Data: values[])
+            // Repeat until the array is sorted.
+
+            Boolean: not_sorted = True
+            While (not_sorted)
+
+                // Assume we won't find a pair to swap.
+                not_sorted = False
+
+                // Search the array for adjacent items that are out of order.
+                For i = 0 To <length of values> - 1
+
+
+                    // See if items i and i - 1 are out of order.
+                    If (values[i] < values[i - 1]) Then
+
+                        // Swap them.
+                        Data: temp = values[i]
+                        values[i] = values[i - 1]
+                        values[i - 1] = temp
+ 
+                        // The array isn't sorted after all.
+                        not_sorted = True
+
+                    End If
+                Next i
+            End While
+        End Bubblesort  
+* Insertion
+*             For insertion sort, we iterate through the array and sort in place,
+          so no extra storage needed.
+          We iterate through the array and then for each index, we check the indices
+          that come before the current index to see if there are elements with a value 
+          GREATER than the current index.
+          (Everything before the current index is considered sorted)
+          
+          If so, then we 'shift' the previous indices to the next index and 'insert'
+          the current index into its correct spot to be sorted.
+
+          Not ideal for large data sets as it must iterate through previous indices for each 'i'.
+          
+          Runtime
+          Best case:  O(n)
+          Worst case: O( n^2 )
+
+        Pseudocode, from Essentials Algorithms      
+        
+         for i=0, i < A.length
+          currentIndex = A[i]
+          previousIndex = A[i-1]
+             While previousIndex > 0 and A[previousIndex] > A[currentIndex] 
+                 swap A[previous] and A[currentIndex]
+                 previousIndex--; 
+             end While
+         next i;
+* Selection
+*         For selection sort, we want to sort the array in ascending order.
+          We take the first item in the array as the 'minimum' value. 
+          We then iterate to the end and see if there is a lower minimum. If so then swap.
+         
+          We repeat, but starting with index i+1 each time until we reach the end of the array.
+
+          Not ideal for large data sets for its iteration of each element for every 'i'.
+      
+          Runtime
+          Best case: O(n)
+          Worst case: O( n^2 )
+
+       Pseudocode
+         
+          For i=0, i < A.Length
+           Minimum = A[i];
+           
+             For j=i, j<A.Length
+              if A[j] < minimum
+                 Minimum = A[j]
+                  next j;
+            
+              swap current index with new Minimum index
+           
+          next i;
+* Quick
+* Merge
+* Heap
