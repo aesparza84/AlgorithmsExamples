@@ -96,7 +96,7 @@ namespace SortingAlgorithms
         /// the current index into its correct spot to be sorted.
         /// 
         /// Runtime
-        /// Best case: O(n)
+        /// Best case:  O(n)
         /// Worst case: O( n^2 )
         ///
 

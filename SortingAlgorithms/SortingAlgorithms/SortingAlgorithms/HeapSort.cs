@@ -50,6 +50,10 @@ namespace SortingAlgorithms
         /// We re-heap the array so that it follows the properties of a heap (the first element may not be > child element)
         /// We repeat this until we are at index 0, where every element will be sorted.
         /// 
+        /// Runtime
+        /// Best case:  O(n log n)
+        /// Worst case: O(n log n)
+        /// 
         /// </summary>
         /// <param name="array"></param>
         /// 
