@@ -20,11 +20,6 @@ namespace SortingAlgorithms
 
         public void Sort()
         {
-            ///Given an int array, we want to check
-            ///if current index is greater than next index.
-            ///IF so, then swap. Repeat until sorted.
-            ///
-
             startTimer();
 
             #region Old Inputs
@@ -66,6 +61,53 @@ namespace SortingAlgorithms
             Console.WriteLine($"Bubble took | {elapsedTime}ms ");
         }
 
+        /// <summary>
+        /// For bubble sort, we use the fact that 
+        ///  'if an array is unsorted then there must be adjacent elements
+        ///   that are out of order.'
+        ///  
+        /// We loop through the array and swap adjacent elements that are out of 
+        /// order until there are no more out of order elements.
+        /// 
+        /// Runtime
+        /// Best case:  O( n^2 )
+        /// Worst case: O( n^2 )
+        /// 
+        /// </summary>
+        /// <param name="array"></param>
+        /// 
+
+        /*Pseudocode, from Essentials Algorithms 
+         * 
+         * Bubblesort(Data: values[])
+            // Repeat until the array is sorted.
+
+            Boolean: not_sorted = True
+            While (not_sorted)
+
+                // Assume we won't find a pair to swap.
+                not_sorted = False
+
+                // Search the array for adjacent items that are out of order.
+                For i = 0 To <length of values> - 1
+
+
+                    // See if items i and i - 1 are out of order.
+                    If (values[i] < values[i - 1]) Then
+
+                        // Swap them.
+                        Data: temp = values[i]
+                        values[i] = values[i - 1]
+                        values[i - 1] = temp
+ 
+                        // The array isn't sorted after all.
+                        not_sorted = True
+
+                    End If
+                Next i
+            End While
+        End Bubblesort  
+         */
         private void BubbleSorting(int[] array)
         {
             int tempSpot = 0;

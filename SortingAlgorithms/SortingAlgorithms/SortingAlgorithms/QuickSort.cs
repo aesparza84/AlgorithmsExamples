@@ -20,18 +20,8 @@ namespace SortingAlgorithms
         public QuickSort() 
         {
             GetScoresFromFile();
-            //nums = new int[] { 5, 2, 76, 3, 11, 98, 9, 7, 21, 6 };
             nums = new int[] { 7, 2, 1, 6, 8, 5, 3, 9, 4 };
         }
-
-        /// <summary>
-        /// The way Quick Sort works is that it recurisively splits an
-        /// unsorted array into sub-arrays, sorting each one.
-        /// 
-        /// Quick Sort chooses an element to act as a 'pivot' where it 
-        /// uses the pivot to seperate elements that are greater/less than the pivot.
-        /// It recurisvely does this until the entire array is sorted.
-        /// </summary>
         public void Sort()
         {
             startTimer();
@@ -50,6 +40,32 @@ namespace SortingAlgorithms
 
         }
 
+        /// <summary>
+        /// The way Quick Sort works is that it recurisively splits an
+        /// unsorted array into sub-arrays (in place by using pivots), sorting each one.
+        /// An in-place divide-and-conquer strategy.
+        /// 
+        /// Quick Sort chooses an element to act as a 'pivot' where it 
+        /// uses the pivot to seperate elements that are greater/less than the pivot.
+        /// It recurisvely does this until the entire array is sorted.
+        /// 
+        /// Runtime
+        /// Best case:  O(n log n)
+        /// Worst case: O( n^2 )
+        /// 
+        /// </summary>
+        /// 
+
+        /*Pseudocode, from NIU
+         * 
+         *  quick_sort(array: data set, start: array[0], end: array[ array.length - 1 ])
+                    if start < end
+                        pivot_point = partition(array, start, end)
+                        quick_sort(array, start, pivot_point - 1)
+                        quick_sort(array, pivot_point + 1, end)
+                    end if
+                end procedure
+         */
         private void quickSort(int[] array, int LowIndex, int HighIndex)
         {
             //This lets us know if the sub-array has 1 element. 
@@ -109,12 +125,9 @@ namespace SortingAlgorithms
                         partitionIndex = swapIndex;
                     }
                 }
-
-                //PrintArray(array);
             }
 
             return swapIndex;
-            //Console.WriteLine($"{Pivot} is at {partitionIndex}");
         }
     }
 }

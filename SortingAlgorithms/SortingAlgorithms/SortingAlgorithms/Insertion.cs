@@ -19,24 +19,7 @@ namespace SortingAlgorithms
         }
 
         public void Sort()
-        {
-            ///Given an int array, we want to check
-            ///if current index is LESS than previous index.
-            ///IF so, then iterate through previous indexes
-            ///until it is greater than previous index. Repeat until sorted.
-            ///.
-            ///.
-            ///Pseudocode
-            ///
-            /// for i=0, i < A.length
-            /// ,currentIndex = A[i]
-            /// ,previousIndex = A[i-1]
-            ///     While previousIndex > 0 and A[previousIndex] > A[currentIndex] 
-            ///         swap A[previous] and A[currentIndex]
-            ///         previousIndex--; 
-            ///     end While
-            ///  next i;
-
+        {            
             startTimer();
 
             #region
@@ -92,11 +75,6 @@ namespace SortingAlgorithms
             InsertionSort(scores);
 
 
-            //for (int i = 0; i < scores.Length; i++)
-            //{
-            //    Console.WriteLine(scores[i]);
-            //}
-
             PrintArray(scores);
 
             stopTimer();
@@ -106,6 +84,34 @@ namespace SortingAlgorithms
 
         }
 
+        
+        ///For insertion sort, we iterate through the array and sort in place,
+        ///so no extra storage needed.
+        /// We iterate through the array and then for each index, we check the indices
+        /// that come before the current index to see if there are elements with a value 
+        /// GREATER than the current index.
+        /// (Everything before the current index is considered sorted)
+        /// 
+        /// If so, then we 'shift' the previous indices to the next index and 'insert'
+        /// the current index into its correct spot to be sorted.
+        /// 
+        /// Runtime
+        /// Best case: O(n)
+        /// Worst case: O( n^2 )
+        ///
+
+        /*   Pseudocode, from Essentials Algorithms      
+        
+         for i=0, i < A.length
+          currentIndex = A[i]
+          previousIndex = A[i-1]
+             While previousIndex > 0 and A[previousIndex] > A[currentIndex] 
+                 swap A[previous] and A[currentIndex]
+                 previousIndex--; 
+             end While
+         next i;
+
+        */
         private void InsertionSort(int[] array)
         {
             //We iterate through the array
@@ -127,33 +133,6 @@ namespace SortingAlgorithms
                     array[jIndex] = currentInt;
                     jIndex--;
                 }
-
-
-                #region Sorts by greatest
-                //SKips first idnex, already sorted
-                //if (i>0)
-                //{
-                //    for (int j = 0; j <= i; j++)
-                //    {
-                //        //If current 'j' index is greater than previous, Swap
-                //        if (nums[j] < nums[i])
-                //        {
-                //            previous = nums[i];
-
-                //            tempSpot = nums[j];
-                //            nums[j] = previous;
-                //            nums[i] = tempSpot;
-
-
-                //        }
-                //    }
-                //}
-                //Console.WriteLine($"Iteration {i + 1}");
-                //for (int k = 0; k < nums.Length; k++)
-                //{
-                //    Console.WriteLine(nums[k]);
-                //}
-                #endregion
             }
         }
     }

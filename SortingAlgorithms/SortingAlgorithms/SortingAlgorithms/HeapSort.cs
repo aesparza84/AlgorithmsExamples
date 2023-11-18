@@ -23,11 +23,7 @@ namespace SortingAlgorithms
         {
             startTimer();
 
-            HeapSorting(scores);
-            //for (int i = 0; i < scores.Length; i++)
-            //{
-            //    Console.WriteLine(scores[i]+" ");
-            //}            
+            HeapSorting(scores); 
 
             PrintArray(scores);
 
@@ -37,6 +33,16 @@ namespace SortingAlgorithms
             Console.WriteLine($"Heap took | {elapsedTime}ms ");
         }
 
+        /// <summary>
+        /// 
+        /// Heap is a comparison-based sort-in-place sorting algorithm, that means no extra memory is
+        /// required (no extra arrays).
+        /// Similar to seleciton sort, heap sort divides the array into a 'sorted' and 'unsorted' sections.
+        /// 
+        /// Heap sort makes use of the 'binary tree structure'
+        /// 
+        /// </summary>
+        /// <param name="array"></param>
         private void HeapSorting(int[] array)
         {
             int tempSpot;

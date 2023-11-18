@@ -33,12 +33,6 @@ namespace SortingAlgorithms
             startTimer();
 
             mergeSort(scores,0, scores.Length-1);
-            //mergeSort(nums, scratchArray, 0, scores.Length-1);
-
-            //for (int i = 0; i < scores.Length; i++)
-            //{
-            //    Console.WriteLine(scores[i]);
-            //}
 
             PrintArray(scores);
 
@@ -49,6 +43,73 @@ namespace SortingAlgorithms
 
         }
 
+        /// <summary>
+        /// Merge uses the divide-and-conquer approach to sorting. Unlike quick sort, merge sort is not
+        /// in-place sorting, meaning we will need extra memory for the sub arrays.
+        /// For the 'divide' aspect, Merge sort calls itself recursively to split the array in half,
+        /// which will split the sub arrays in half until they are one element.
+        /// 
+        /// At that point we can compare elements from the the 'left' and 'right' half arrays,
+        /// place those indexes into an array that will be in sorted order, and recursively merge back the 
+        /// arrays until we have 1 sorted array.
+        /// 
+        /// Runtime
+        /// Best case:  O(n log n)
+        /// Worst case: O(n log n)
+        /// 
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="LowIndex"></param>
+        /// <param name="HighIndex"></param>
+        /// 
+
+        /*Pseudocode, from Essential Algorithms
+         * 
+         * Mergesort(Data: values[], Data: scratch[], Integer: start, Integer: end)
+         
+            // If the array contains only one item, it is already sorted.
+            If (start == end) Then Return
+ 
+                // Break the array into left and right halves.
+                Integer: midpoint = (start + end) / 2
+ 
+                // Call Mergesort to sort the two halves.
+                Mergesort(values, scratch, start, midpoint)
+                Mergesort(values, scratch, midpoint + 1, end)
+ 
+                // Merge the two sorted halves.
+                Integer: left_index = start
+                Integer: right_index = midpoint + 1
+                Integer: scratch_index = left_index
+                While ((left_index <= midpoint) And (right_index <= end))
+                    If (values[left_index] <= values[right_index]) Then
+                        scratch[scratch_index] = values[left_index]
+                        left_index = left_index + 1
+                    Else
+                        scratch[scratch_index] = values[right_index]
+                        right_index = right_index + 1
+                    End If
+                        scratch_index = scratch_index + 1   
+                End While
+ 
+                // Finish copying whichever half is not empty.
+                For i = left_index To midpoint
+                    scratch[scratch_index] = values[i]
+                    scratch_index = scratch_index + 1
+                Next i
+                
+                For i = right_index To end
+                    scratch[scratch_index] = values[i]
+                    scratch_index = scratch_index + 1
+                Next i
+
+                // Copy the values back into the original values array.
+                For i = start To end
+                    values[i] = scratch[i]
+                Next i
+            End Mergesort
+         * 
+         */
         private void mergeSort(int[] array,int LowIndex, int HighIndex)
         {
             //We check if the passed array is only 1 element
