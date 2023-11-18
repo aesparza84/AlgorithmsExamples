@@ -34,11 +34,7 @@ namespace SortingAlgorithms
         /// </summary>
         public void Sort()
         {
-            //for (int i = 0; i < nums.Length; i++)
-            //{
-            //    Console.Write($"{nums[i]} ");
-            //}
-            //Console.WriteLine();
+            startTimer();
 
             Pivot = scores.Length-1;
             //PartitionAndGetIndex(nums, 0, Pivot);
@@ -46,6 +42,11 @@ namespace SortingAlgorithms
             quickSort(scores, 0, Pivot);
 
             PrintArray(scores);
+
+            stopTimer();
+
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Quick took | {elapsedTime}ms ");
 
         }
 
@@ -114,14 +115,6 @@ namespace SortingAlgorithms
 
             return swapIndex;
             //Console.WriteLine($"{Pivot} is at {partitionIndex}");
-        }
-
-        private static void PrintArray(int[] array)
-        {
-            for (int k = 0; k < array.Length; k++)
-            {
-                Console.WriteLine($"{array[k]} ");
-            }
         }
     }
 }

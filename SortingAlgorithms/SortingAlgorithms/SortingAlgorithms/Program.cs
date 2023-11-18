@@ -16,22 +16,27 @@
             ///This demonstrates the 'Bubble Sort' method
             ///Very inefficient
             BubbleSort bubble = new BubbleSort();
-            //bubble.Sort();
+            bubble.Sort();
+            Console.WriteLine();
 
             Insertion insertionSort = new Insertion();
-            //insertionSort.Sort();
+            insertionSort.Sort();
+            Console.WriteLine();
 
             SelectionSort select = new SelectionSort();
-            //select.Sort();
+            select.Sort();
+            Console.WriteLine();
 
             QuickSort quick = new QuickSort();
-            //quick.Sort();
+            quick.Sort();
+            Console.WriteLine();
 
-            MergeSort merge= new MergeSort();
-            //merge.Sort();
+            MergeSort merge = new MergeSort();
+            merge.Sort();
+            Console.WriteLine();
 
             HeapSort heap = new HeapSort();
-            //heap.Sort();
+            heap.Sort();
         }
     }
 }

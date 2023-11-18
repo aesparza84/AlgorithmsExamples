@@ -21,12 +21,20 @@ namespace SortingAlgorithms
 
         public void Sort()
         {
-            HeapSorting(nums);
+            startTimer();
 
-            for (int i = 0; i < nums.Length; i++)
-            {
-                Console.Write(nums[i]+" ");
-            }
+            HeapSorting(scores);
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    Console.WriteLine(scores[i]+" ");
+            //}            
+
+            PrintArray(scores);
+
+            stopTimer();
+
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Heap took | {elapsedTime}ms ");
         }
 
         private void HeapSorting(int[] array)

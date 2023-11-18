@@ -30,13 +30,22 @@ namespace SortingAlgorithms
             ///back as 1 sorted array.
             ///
 
+            startTimer();
+
             mergeSort(scores,0, scores.Length-1);
             //mergeSort(nums, scratchArray, 0, scores.Length-1);
 
-            for (int i = 0; i < scores.Length; i++)
-            {
-                Console.WriteLine(scores[i]);
-            }
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    Console.WriteLine(scores[i]);
+            //}
+
+            PrintArray(scores);
+
+            stopTimer();
+
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Merge took | {elapsedTime}ms ");
 
         }
 

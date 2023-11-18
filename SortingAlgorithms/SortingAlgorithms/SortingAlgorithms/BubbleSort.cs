@@ -24,6 +24,8 @@ namespace SortingAlgorithms
             ///IF so, then swap. Repeat until sorted.
             ///
 
+            startTimer();
+
             int tempSpot = 0;
 
             for (int i = 0; i < scores.Length-1; i++)
@@ -47,17 +49,22 @@ namespace SortingAlgorithms
 
                 if (!swapOccured)
                 {
-                    Console.WriteLine("Sorted| Bubble Sort");
                     break;
                 }
                 
             }
 
-            for (int i = 0; i < scores.Length; i++)
-            {
-                Console.WriteLine(scores[i]);
-            }
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    Console.WriteLine(scores[i]);
+            //}
 
+            PrintArray(scores);
+
+
+            stopTimer();
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Bubble took | {elapsedTime}ms ");
         }
 
     }

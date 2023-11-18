@@ -36,6 +36,7 @@ namespace SortingAlgorithms
             ///     end While
             ///  next i;
 
+            startTimer();
 
             //We iterate through the array
             for (int i = 0; i < scores.Length; i++)
@@ -84,11 +85,18 @@ namespace SortingAlgorithms
                 //}
                 #endregion
             }
-            Console.WriteLine("Start| Insertion Sort");
-            for (int i = 0; i < scores.Length; i++)
-            {
-                Console.WriteLine(scores[i]);
-            }
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    Console.WriteLine(scores[i]);
+            //}
+
+            PrintArray(scores);
+
+            stopTimer();
+
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Insertion took | {elapsedTime}ms ");
+
         }
     }
 }

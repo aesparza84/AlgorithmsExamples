@@ -42,6 +42,8 @@ namespace SortingAlgorithms
         /// next i;
         public void Sort()
         {
+            startTimer();
+
             minimumBound = 0;
 
             for (int i = 0; i < scores.Length; i++)
@@ -63,10 +65,17 @@ namespace SortingAlgorithms
 
             }
 
-            for (int i = 0; i < scores.Length; i++)
-            {
-                Console.WriteLine(scores[i]);
-            }
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    Console.WriteLine(scores[i]);
+            //}
+
+            PrintArray(scores);
+
+            stopTimer();
+
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Selection took | {elapsedTime}ms ");
         }
     }
 }
