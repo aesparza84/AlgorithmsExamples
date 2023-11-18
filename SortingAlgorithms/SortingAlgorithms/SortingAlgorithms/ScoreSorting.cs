@@ -49,5 +49,13 @@ namespace SortingAlgorithms
             }
             Console.WriteLine();
         }
+
+        protected void Swap(int[] arr, int i, int j)
+        {
+            int swapSpot;
+            swapSpot = arr[i];
+            arr[i] = arr[j];
+            arr[j] = swapSpot;
+        }
     }
 }

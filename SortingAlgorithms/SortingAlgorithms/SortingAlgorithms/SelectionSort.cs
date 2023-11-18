@@ -12,18 +12,61 @@ namespace SortingAlgorithms
         int minimumBound;
         int swapIndex;
         int tempSpot;
+
+        int[] nums;
         public SelectionSort() 
         {
             GetScoresFromFile();
-
+            nums = new int[] { 7, 2, 1, 6, 8, 5, 3, 9, 4 };
             //scores = new int[] { 5, 2, 76, 3, 11, 98, 9, 7, 21, 6 };
+        }
+
+        
+        public void Sort()
+        {
+            startTimer();
+
+            #region Old inputs
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    minimumBound = scores[i];
+
+            //    for (int j = i; j < scores.Length; j++)
+            //    {
+            //        if (scores[j] < minimumBound)
+            //        {
+            //            minimumBound = scores[j];
+            //            swapIndex = j;
+            //        }
+            //    }
+
+            //    tempSpot = scores[i];
+            //    scores[i] = scores[swapIndex];
+            //    scores[swapIndex] = tempSpot;
+
+            //}
+                #endregion
+
+            SelectSort(nums);
+
+            PrintArray(nums);
+
+            stopTimer();
+
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Selection took | {elapsedTime}ms ");
         }
 
         /// <summary>
         /// For selection sort, we want to sort the array in ascending order.
         /// We take the first item in the array as the 'minimum' value. 
         /// We then iterate to the end and see if there is a lower minimum. If so then swap.
-        /// We repeat, but starting with index i+1 each time
+        /// 
+        ///  We repeat, but starting with index i+1 each time until we reach the end of the array.
+        /// 
+        ///  Runtime
+        ///  Best case: O(n)
+        ///  Worst case: O( n^2 ) 
         /// </summary>
         /// 
 
@@ -40,42 +83,30 @@ namespace SortingAlgorithms
         ///     swap current index with new Minimum index
         ///  
         /// next i;
-        public void Sort()
+
+        private void SelectSort(int[] array)
         {
-            startTimer();
-
-            minimumBound = 0;
-
-            for (int i = 0; i < scores.Length; i++)
+            bool needSwap = false;
+            for (int i = 0; i < array.Length; i++)
             {
-                minimumBound = scores[i];
+                minimumBound = array[i];
+                needSwap = false;
 
-                for (int j = i; j < scores.Length; j++)
+                for (int j = i; j < array.Length; j++)
                 {
-                    if (scores[j] < minimumBound)
+                    if (array[j] < minimumBound)
                     {
-                        minimumBound = scores[j];
+                        needSwap= true;
+
+                        minimumBound = array[j];
                         swapIndex = j;
                     }
                 }
 
-                tempSpot = scores[i];
-                scores[i] = scores[swapIndex];
-                scores[swapIndex] = tempSpot;
+                if (needSwap) { Swap(array, i, swapIndex); }
+                
 
             }
-
-            //for (int i = 0; i < scores.Length; i++)
-            //{
-            //    Console.WriteLine(scores[i]);
-            //}
-
-            PrintArray(scores);
-
-            stopTimer();
-
-            var elapsedTime = myStopWatch.ElapsedMilliseconds;
-            Console.WriteLine($"Selection took | {elapsedTime}ms ");
         }
     }
 }

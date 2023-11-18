@@ -11,10 +11,11 @@ namespace SortingAlgorithms
         //private int[] scores;
         private int k, p;
         bool swapOccured;
+        int[] nums;
         public BubbleSort()
         {
             GetScoresFromFile();
-            
+            nums = new int[] { 7, 2, 1, 6, 8, 5, 3, 9, 4 };
         }
 
         public void Sort()
@@ -24,25 +25,67 @@ namespace SortingAlgorithms
             ///IF so, then swap. Repeat until sorted.
             ///
 
-            startTimer(); 
+            startTimer();
+
+            #region Old Inputs
+            //int tempSpot = 0;
+
+            //for (int i = 0; i < scores.Length-1; i++)
+            //{
+            //    swapOccured= false;
+            //    for (int j = 0; j < scores.Length-1; j++)
+            //    {
+            //        if (scores[j] > scores[j + 1])
+            //        {
+            //            k = scores[j]; //The bigger number
+            //            p = scores[j + 1]; //The smaller number
+
+            //            //Swaps current index for next index
+            //            tempSpot = k;
+            //            scores[j] = p;
+            //            scores[j+1] = tempSpot;
+                        
+            //            swapOccured= true;
+            //        }
+            //    }
+
+            //    if (!swapOccured)
+            //    {
+            //        break;
+            //    }                
+            //}
+            #endregion
+
+            BubbleSorting(nums);
+
+            PrintArray(nums);
+
+
+            stopTimer();
+            var elapsedTime = myStopWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Bubble took | {elapsedTime}ms ");
+        }
+
+        private void BubbleSorting(int[] array)
+        {
             int tempSpot = 0;
 
-            for (int i = 0; i < scores.Length-1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                swapOccured= false;
-                for (int j = 0; j < scores.Length-1; j++)
+                swapOccured = false;
+                for (int j = 0; j < array.Length - 1; j++)
                 {
-                    if (scores[j] > scores[j + 1])
+                    if (array[j] > array[j + 1])
                     {
-                        k = scores[j]; //The bigger number
-                        p = scores[j + 1]; //The smaller number
+                        k = array[j]; //The bigger number
+                        p = array[j + 1]; //The smaller number
 
                         //Swaps current index for next index
                         tempSpot = k;
-                        scores[j] = p;
-                        scores[j+1] = tempSpot;
-                        
-                        swapOccured= true;
+                        array[j] = p;
+                        array[j + 1] = tempSpot;
+
+                        swapOccured = true;
                     }
                 }
 
@@ -50,20 +93,8 @@ namespace SortingAlgorithms
                 {
                     break;
                 }
-                
+
             }
-
-            //for (int i = 0; i < scores.Length; i++)
-            //{
-            //    Console.WriteLine(scores[i]);
-            //}
-
-            PrintArray(scores);
-
-
-            stopTimer();
-            var elapsedTime = myStopWatch.ElapsedMilliseconds;
-            Console.WriteLine($"Bubble took | {elapsedTime}ms ");
         }
 
     }
