@@ -39,13 +39,42 @@ namespace SortingAlgorithms
         /// required (no extra arrays).
         /// Similar to seleciton sort, heap sort divides the array into a 'sorted' and 'unsorted' sections.
         /// 
-        /// Heap sort makes use of the 'binary tree structure'
+        /// Heap sort makes use of the 'binary tree structure' (utilizing the parent-child node structure) as it takes an unsorted array and builds
+        /// a 'heap' out of it. This is helpful since the definition of a heap tells us that the parent
+        /// nodes must always be greater than or equal to its child elements. SO when we build a heap, we know that 
+        /// the first element of the array will be the greatest element in the entire array.
+        /// 
+        /// When sorting, we swap the FIRST and LAST elements of the heap, 
+        /// placing the greatest element at the end of the array and considering it sorted.
+        /// Since we know the last element is sorted we DON'T want to iterate through it again, now our max index to iterate through is [array.length-i].
+        /// We re-heap the array so that it follows the properties of a heap (the first element may not be > child element)
+        /// We repeat this until we are at index 0, where every element will be sorted.
         /// 
         /// </summary>
         /// <param name="array"></param>
+        /// 
+
+        /* Pseudocode, from Essential Algorithms
+         * 
+         * Heapsort(Data: values)
+                
+                method: Turn the array into a heap
+ 
+                For i = (values length) - 1 To 0;  Step -1
+
+                    // Swap the root item and the last item.
+                    Data: temp = values[0]
+                    values[0] = values[i]
+                    values[i] = temp
+ 
+                    <Consider the item in position i to be removed from the heap,
+                     so the heap now holds i - 1 items. Push the new root value
+                     down into the heap to restore the heap property.>
+                Next i
+            End Heapsort  
+         */
         private void HeapSorting(int[] array)
         {
-            int tempSpot;
             //This is a max heap, so we know the first element is the greatest
             MakeHeap(array);
 
@@ -53,12 +82,6 @@ namespace SortingAlgorithms
             {
                 array[i] = RemoveTopItem(array, i);
             }
-            //for (int i = array.Length-1; i > 0; i--)
-            //{
-            //    tempSpot = array[0];
-            //    array[0] = array[i];
-            //    array[i] = tempSpot;
-            //}
         }
 
         private void MakeHeap(int[] array)
