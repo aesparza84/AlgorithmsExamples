@@ -24,8 +24,7 @@ namespace SortingAlgorithms
             ///IF so, then swap. Repeat until sorted.
             ///
 
-            startTimer();
-
+            startTimer(); 
             int tempSpot = 0;
 
             for (int i = 0; i < scores.Length-1; i++)
