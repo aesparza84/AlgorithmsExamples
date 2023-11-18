@@ -47,9 +47,9 @@ namespace SortingAlgorithms
             //}
                 #endregion
 
-            SelectSort(nums);
+            SelectSort(scores);
 
-            PrintArray(nums);
+            PrintArray(scores);
 
             stopTimer();
 

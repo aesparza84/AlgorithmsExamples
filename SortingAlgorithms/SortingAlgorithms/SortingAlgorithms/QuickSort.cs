@@ -21,7 +21,7 @@ namespace SortingAlgorithms
         {
             GetScoresFromFile();
             //nums = new int[] { 5, 2, 76, 3, 11, 98, 9, 7, 21, 6 };
-            nums = new int[] { 7,2,1,6,8,5,3,4};
+            nums = new int[] { 7, 2, 1, 6, 8, 5, 3, 9, 4 };
         }
 
         /// <summary>

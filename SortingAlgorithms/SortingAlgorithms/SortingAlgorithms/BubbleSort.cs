@@ -56,9 +56,9 @@ namespace SortingAlgorithms
             //}
             #endregion
 
-            BubbleSorting(nums);
+            BubbleSorting(scores);
 
-            PrintArray(nums);
+            PrintArray(scores);
 
 
             stopTimer();
