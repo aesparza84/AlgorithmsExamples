@@ -23,20 +23,20 @@ This week we explored different types of data structures such as Hash tables, Ar
             HASH TABLES
             
             PRO: They better suited for larger data sets as inserting, lookup and delete
-            take on average O(1) to compute, worst case O(n).
+             take on average O(1) to compute, worst case O(n).
             
             CON: When two keys lead to the same bucket (a collision) linked lists are used to search 
-            for the desired items, which is not ideal for large data sets.
+             for the desired items, which is not ideal for large data sets.
            
 
             ARRAY
             
             PRO: Arrays are great for small data sets. Initializing an array keeps all the elements near
-            eachother in memory which allows for quick and efficient lookup. 
+             eachother in memory which allows for quick and efficient lookup. 
             Insert takes O(1), lookup and delete takes O(n).
             
             CONS: The lookup taking O(n) makes arrays not ideal for large data sets, whereas Hash points you 
-            directly to the data location.
+             directly to the data location.
             
 
             STACK
@@ -44,14 +44,14 @@ This week we explored different types of data structures such as Hash tables, Ar
             PRO: All operations take O(1) to perform.
             
             Stacks have a LIFO proerty (Last In First Out), where the LAST item to enter the stack
-            is the FIRST item to leave the stack. 
+             is the FIRST item to leave the stack. 
              
             Stacks can be used for tracking data through a process. An example can be
-            the 'Undo' command in a lot of software. You can 'Pop' off the last command 
-            and return to the previous iteration.
+             the 'Undo' command in a lot of software. You can 'Pop' off the last command 
+             and return to the previous iteration.
             
             CONS: If you need to access something at the bottom of the stack, it would take O(n) time
-            and would be inefficient.
+             and would be inefficient.
             
 
             QUEUE
@@ -62,10 +62,10 @@ This week we explored different types of data structures such as Hash tables, Ar
             The First item to enter the queue is the First item to leave the queue.
             
             An example use could be handling web requests, where you would want to handle them in the order
-            that they were recieved.
+             that they were recieved.
             
             CONS: There is no random access, so searching for where an item is or if it contains an item
-            is not ideal with Queues as you would need to convert to an array.
+             is not ideal with Queues as you would need to convert to an array.
 
 ## Week 11 - Sorting Algorithms
 This week we viewed different sorting algorithms and created them from their Pseudocode.
@@ -73,11 +73,11 @@ This week we viewed different sorting algorithms and created them from their Pse
 ### Different sorts
 * Bubble
 *          For bubble sort, we use the fact that 
-           if an array is unsorted then there must be adjacent elements
-           that are out of order.
+            if an array is unsorted then there must be adjacent elements
+            that are out of order.
            
           We loop through the array and swap adjacent elements that are out of 
-          order until there are no more out of order elements.
+           order until there are no more out of order elements.
 
           Not ideal for large data sets
           
@@ -115,10 +115,10 @@ This week we viewed different sorting algorithms and created them from their Pse
             End While
         End Bubblesort  
 * Insertion
-*             For insertion sort, we iterate through the array and sort in place,
-          so no extra storage needed.
+*         For insertion sort, we iterate through the array and sort in place,
+           so no extra storage needed.
           We iterate through the array and then for each index, we check the indices
-          that come before the current index to see if there are elements with a value 
+           that come before the current index to see if there are elements with a value 
           GREATER than the current index.
           (Everything before the current index is considered sorted)
           
@@ -168,5 +168,22 @@ This week we viewed different sorting algorithms and created them from their Pse
            
           next i;
 * Quick
+*        The way Quick Sort works is that it recursively splits an
+         unsorted array into sub-arrays (in place by using pivots), sorting each one.
+         An in-place divide-and-conquer strategy to break up and solve smaller sets.
+         
+         Quick Sort chooses an element to act as a 'pivot' where it 
+          uses that value to seperate elements that are greater/less than it,
+          usually elements less than to the left of the pivot and items greater than to the right of the pivot.
+         Once we have our 2 halves (less than and greater than) we then recurisvely call merge sort to do the same
+          steps on the 2 halves. It recurisvely does this until the entire array is sorted.
+
+         Note: There are different methods of choosing the pivot value. Methods can have the pivot be the first element,
+         the last element, or even be a random element in the array. For this version, the pivot will be the last value in the array.
+         
+
+         Runtime
+         Best case:  O(n log n)
+         Worst case: O( n^2 )
 * Merge
 * Heap
