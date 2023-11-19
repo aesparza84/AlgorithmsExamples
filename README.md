@@ -180,10 +180,114 @@ This week we viewed different sorting algorithms and created them from their Pse
 
          Note: There are different methods of choosing the pivot value. Methods can have the pivot be the first element,
          the last element, or even be a random element in the array. For this version, the pivot will be the last value in the array.
-         
-
+     
          Runtime
          Best case:  O(n log n)
          Worst case: O( n^2 )
+
+     Pseudocode, from NIU
+          
+           quick_sort(array: data set, start: array[0], end: array[ array.length - 1 ])
+                    if start < end
+                        pivot_point = partition(array, start, end)
+                        quick_sort(array, start, pivot_point - 1)
+                        quick_sort(array, pivot_point + 1, end)
+                    end if
+           end procedure
 * Merge
+*        Merge uses the divide-and-conquer approach to sorting. Unlike quick sort, merge sort is not
+         in-place sorting, meaning we will need extra memory for the sub arrays.
+         For the 'divide' aspect, Merge sort calls itself recursively to split the array in half,
+         which will split the sub arrays in half until they are one element.
+         
+         At that point we can compare elements from the the 'left' and 'right' half arrays,
+         place those indexes into an array that will be in sorted order, and recursively merge back the 
+         arrays until we have 1 sorted array.
+         
+         Runtime
+         Best case:  O(n log n)
+         Worst case: O(n log n)
+
+     Pseudocode, from Essential Algorithms
+           
+           Mergesort(Data: values[], Data: scratch[], Integer: start, Integer: end)
+         
+            // If the array contains only one item, it is already sorted.
+            If (start == end) Then Return
+ 
+                // Break the array into left and right halves.
+                Integer: midpoint = (start + end) / 2
+ 
+                // Call Mergesort to sort the two halves.
+                Mergesort(values, scratch, start, midpoint)
+                Mergesort(values, scratch, midpoint + 1, end)
+ 
+                // Merge the two sorted halves.
+                Integer: left_index = start
+                Integer: right_index = midpoint + 1
+                Integer: scratch_index = left_index
+                While ((left_index <= midpoint) And (right_index <= end))
+                    If (values[left_index] <= values[right_index]) Then
+                        scratch[scratch_index] = values[left_index]
+                        left_index = left_index + 1
+                    Else
+                        scratch[scratch_index] = values[right_index]
+                        right_index = right_index + 1
+                    End If
+                        scratch_index = scratch_index + 1   
+                End While
+ 
+                // Finish copying whichever half is not empty.
+                For i = left_index To midpoint
+                    scratch[scratch_index] = values[i]
+                    scratch_index = scratch_index + 1
+                Next i
+                
+                For i = right_index To end
+                    scratch[scratch_index] = values[i]
+                    scratch_index = scratch_index + 1
+                Next i
+
+                // Copy the values back into the original values array.
+                For i = start To end
+                    values[i] = scratch[i]
+                Next i
+          End Mergesort
 * Heap
+*              Heap is a comparison-based sort-in-place sorting algorithm, that means no extra memory is
+          required (no extra arrays).
+          Similar to seleciton sort, heap sort divides the array into a 'sorted' and 'unsorted' sections.
+          
+          Heap sort makes use of the 'binary tree structure' (utilizing the parent-child node structure) as it takes an unsorted array and builds
+          a 'heap' out of it. This is helpful since the definition of a heap tells us that the parent
+          nodes must always be greater than or equal to its child elements. SO when we build a heap, we know that 
+          the first element of the array will be the greatest element in the entire array.
+          
+          When sorting, we swap the FIRST and LAST elements of the heap, 
+          placing the greatest element at the end of the array and considering it sorted.
+          Since we know the last element is sorted we DON'T want to iterate through it again, now our max index to iterate through is [array.length-i].
+          We re-heap the array so that it follows the properties of a heap (the first element may not be > child element)
+          We repeat this until we are at index 0, where every element will be sorted.
+          
+          Runtime
+          Best case:  O(n log n)
+          Worst case: O(n log n)
+
+Pseudocode, from Essential Algorithms
+           
+           Heapsort(Data: values)
+                
+                method: Turn the array into a heap
+ 
+                For i = (values length) - 1 To 0;  Step -1
+
+                    // Swap the root item and the last item.
+                    Data: temp = values[0]
+                    values[0] = values[i]
+                    values[i] = temp
+ 
+                    <Consider the item in position i to be removed from the heap,
+                     so the heap now holds i - 1 items. Push the new root value
+                     down into the heap to restore the heap property.>
+                Next i
+            End Heapsort  
