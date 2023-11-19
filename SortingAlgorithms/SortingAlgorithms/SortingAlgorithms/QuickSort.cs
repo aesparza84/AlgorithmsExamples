@@ -41,6 +41,9 @@ namespace SortingAlgorithms
         }
 
         /// <summary>
+        /// 
+        /// Used https://youtu.be/WprjBK0p6rw?feature=shared as for guiding
+        /// 
         /// The way Quick Sort works is that it recurisively splits an
         /// unsorted array into sub-arrays (in place by using pivots), sorting each one.
         /// An in-place divide-and-conquer strategy.
