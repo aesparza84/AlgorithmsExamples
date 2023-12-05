@@ -14,15 +14,22 @@ namespace SearchAlgorithms
             int[] scoresTwo = GetAndSort();
             int[] scoresThree = GetAndSort();
 
-            int[] asd = new int[] {1,2,3,4,5,6,7,8,9,10,11};
-
+            #region Test Arrays, mainly for interpolate
+            //int[] asd = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
+            //int[] asd = new int[] {1, 2, 4, 6, 10, 12, 14, 16,18, 22, 24, 26, 28};
+            //int[] asd = new int[] {13, 16, 19, 22, 30, 33, 36};
+            //int[] asd = new int[] {1,2,4,8,16,32,64,128,256,512,1024};
+            #endregion
             //scoresOne = QuickSort.Sort(scoresOne);
+            //Console.WriteLine("Linear Search");
             //Console.WriteLine(LinearSearch.search(scoresOne, 66));
 
-            scoresTwo= QuickSort.Sort(scoresTwo);
+            //scoresTwo = QuickSort.Sort(scoresTwo);
+            //Console.WriteLine("Binary Search");
+            //Console.WriteLine(BinarySearch.search(scoresTwo, 0, scoresTwo.Length-1, 54));
 
-            Console.WriteLine("Binary Search");
-            Console.WriteLine(BinarySearch.search(scoresTwo, 0, scoresTwo.Length-1, 54));
+            scoresThree = QuickSort.Sort(scoresThree);
+            Console.WriteLine(InterpolateSearch.search(scoresThree, 0, scoresThree.Length-1, 22));
 
         }
 
