@@ -14,9 +14,16 @@ namespace SearchAlgorithms
             int[] scoresTwo = GetAndSort();
             int[] scoresThree = GetAndSort();
 
-            scoresOne = QuickSort.Sort(scoresOne);
+            int[] asd = new int[] {1,2,3,4,5,6,7,8,9,10,11};
 
-            Console.WriteLine(LinearSearch.search(scoresOne, 66));
+            //scoresOne = QuickSort.Sort(scoresOne);
+            //Console.WriteLine(LinearSearch.search(scoresOne, 66));
+
+            //scoresTwo= QuickSort.Sort(scoresTwo);
+
+            Console.WriteLine("Binary Search");
+            Console.WriteLine(BinarySearch.search(asd, 0, asd.Length, 2));
+
         }
 
         public static int[] GetAndSort()
