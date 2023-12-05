@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithms
 {
-    public class LinearSearch
+    public static class LinearSearch
     {
-        public static void search()
+        public static string search(int[] array, int target)
         {
+            Console.WriteLine("Linear Search");
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == target)
+                {
+                    return $"Target {target} at index {i}";
+                }
+            }
 
+            return "No target found";
         }
     }
 }
