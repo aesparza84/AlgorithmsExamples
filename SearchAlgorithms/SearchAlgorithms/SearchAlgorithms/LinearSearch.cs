@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithms
 {
-    internal class LinearSearch
+    public class LinearSearch
     {
+        public static void search()
+        {
+
+        }
     }
 }
