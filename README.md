@@ -5,7 +5,7 @@ This is my repository, which will hold all my algorithms created throughout the 
 * Constant Time
 * Quadratic Time
 
-## Week 5 - Current, Fisher-Yates Shuffle
+## Week 5 - Fisher-Yates Shuffle
 This week we looked at numerical algorithms, one of which was the Fisher-Yates Shuffle.
 The Fisher-Yates algorithm iterates through an array in reverse by starting at the last element.  
 
@@ -291,3 +291,74 @@ Pseudocode, from Essential Algorithms
                      down into the heap to restore the heap property.>
                 Next i
             End Heapsort  
+
+## Week 12 - Search Algorithms
+This week we looked at different types of sorting algorithms. Here is a project
+that goes over Linear Search, Binary Search, and Interpolation Search.
+### Interpolate Search
+  *      The Interpolate search algorithm works best on sorted data sets 
+         that are mostly uniform. Interpolate search uses a formula based off 
+         the target value and array size to estimate where the target value's index
+         might be located.
+         
+         The formula goes: LowIndex + (MaxIndex - LowIndex) * (targetValue - array[Lowindex]) / (array[MaxIndex] - array[Lowindex]);
+         The algorithm recursivley calls this formula (changing bounds when needed)
+         until it finds the index with the target value.
+         This algorithm is very efficient compared to the other algorithms on larger data sets;
+         You can think of it as trying to find a word in a dictionary and how one determines where the word might be.
+         
+         Time Complexity
+         Best Case: O (log log n)
+         Worst Case: O(n)
+
+     Pseudocode
+       * Interpolate(array, Low, Max, target)
+                        int searchIndex = Low + (Max - Low) * (target - array[Low]) / (array[Max] - array[Low]);
+
+                        if array[searchIndex] = target
+                            return index;
+
+                        if array[searchIndex] > target
+                            return search(array, Low, searchIndex - 1, target);
+            
+                        if array[searchIndex] < target
+                            return search(array, searchIndex - 1, Max, target);
+### Linear Search
+  *       The algorithm Linear search is fairly simple, it iterates
+          through the entire array until it finds the index with target value.
+          This works fine with smaller arrays but not ideal for larger data sets.
+          
+          Time Complexity
+          Best Case: O(1)
+          Worst Case: O(n/2)
+      Pseudocode
+*             for i = array length - 1
+                if array[i] = target
+                    return index
+                else
+                    next i;
+
+### Binary Search
+*        The Binary search algorithm requires it to have an already sorted
+         data set. It checks the middle index of the array/sub-array to see
+         if it is the 'target' value.
+         
+         Initially, we check the middle index of the whole array. If the element
+         at the middle index is greater than the target, we check the left half 
+         of the array and find the middle index of that half, and recursively do so
+         until we have found the target.  - Same for right half if element is initially less than target.
+         
+         Time Complexity
+         Best Case: O(1)
+         Worst Case: O(log n)
+     Pseudocode
+*             function binary_search(array, Low, Hi, target):
+                while left <= right:
+                    mid = (left + right) // 2
+                    if list[mid] == target:
+                        return mid
+                    elif list[mid] < target:
+                        Low = mid + 1
+                    else:
+                        Hi = mid - 1
+                return -1
