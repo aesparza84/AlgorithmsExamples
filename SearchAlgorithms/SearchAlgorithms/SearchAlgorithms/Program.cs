@@ -19,10 +19,10 @@ namespace SearchAlgorithms
             //scoresOne = QuickSort.Sort(scoresOne);
             //Console.WriteLine(LinearSearch.search(scoresOne, 66));
 
-            //scoresTwo= QuickSort.Sort(scoresTwo);
+            scoresTwo= QuickSort.Sort(scoresTwo);
 
             Console.WriteLine("Binary Search");
-            Console.WriteLine(BinarySearch.search(asd, 0, asd.Length, 2));
+            Console.WriteLine(BinarySearch.search(scoresTwo, 0, scoresTwo.Length-1, 54));
 
         }
 

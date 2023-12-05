@@ -28,6 +28,7 @@ namespace SearchAlgorithms
             {
                 return $"Target {target} at index {MiddleIndex}";
             }
+
             if (array[MiddleIndex] < target)
             {
                 //Search from the next index to max.
@@ -35,6 +36,7 @@ namespace SearchAlgorithms
                 //Max: same
                return search(array, MiddleIndex+1, max, target);
             }
+
             if (array[MiddleIndex] > target)
             {
                 //Search from low to Middle-1
@@ -42,6 +44,8 @@ namespace SearchAlgorithms
                 //Max: Middle - 1
                return search(array, low, MiddleIndex-1, target);
             }
+
+
             else 
             { 
                 return "Could not find target"; 
