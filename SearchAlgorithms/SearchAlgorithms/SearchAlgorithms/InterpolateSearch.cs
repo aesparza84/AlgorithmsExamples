@@ -12,6 +12,7 @@ namespace SearchAlgorithms
         {
             //Formula for getting index to search
             int searchIndex = Low + (Max - Low) * (target - array[Low]) / (array[Max] - array[Low]);
+            Console.WriteLine($"Checking index {searchIndex}");
 
             if (array[searchIndex] == target)
             {

@@ -10,9 +10,9 @@ namespace SearchAlgorithms
     {
         public static string search(int[] array, int target)
         {
-            Console.WriteLine("Linear Search");
             for (int i = 0; i < array.Length; i++)
             {
+                Console.WriteLine($"Checking index {i}");
                 if (array[i] == target)
                 {
                     return $"Target {target} at index {i}";

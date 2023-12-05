@@ -15,6 +15,7 @@ namespace SearchAlgorithms
 
             //We get the middle of the index
             MiddleIndex = (max+low) / 2;
+            Console.WriteLine($"Checking index {MiddleIndex}");
 
             if (MiddleIndex > array.Length-1)
             {

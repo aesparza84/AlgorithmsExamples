@@ -20,16 +20,17 @@ namespace SearchAlgorithms
             //int[] asd = new int[] {13, 16, 19, 22, 30, 33, 36};
             //int[] asd = new int[] {1,2,4,8,16,32,64,128,256,512,1024};
             #endregion
-            //scoresOne = QuickSort.Sort(scoresOne);
-            //Console.WriteLine("Linear Search");
-            //Console.WriteLine(LinearSearch.search(scoresOne, 66));
+            scoresOne = QuickSort.Sort(scoresOne);
+            Console.WriteLine("Linear Search");
+            Console.WriteLine(LinearSearch.search(scoresOne, 66)+"\n");
 
-            //scoresTwo = QuickSort.Sort(scoresTwo);
-            //Console.WriteLine("Binary Search");
-            //Console.WriteLine(BinarySearch.search(scoresTwo, 0, scoresTwo.Length-1, 54));
+            scoresTwo = QuickSort.Sort(scoresTwo);
+            Console.WriteLine("Binary Search");
+            Console.WriteLine(BinarySearch.search(scoresTwo, 0, scoresTwo.Length - 1, 54) + "\n");
 
             scoresThree = QuickSort.Sort(scoresThree);
-            Console.WriteLine(InterpolateSearch.search(scoresThree, 0, scoresThree.Length-1, 22));
+            Console.WriteLine("Interpolate search");
+            Console.WriteLine(InterpolateSearch.search(scoresThree, 0, scoresThree.Length-1, 22) + "\n");
 
         }
 
