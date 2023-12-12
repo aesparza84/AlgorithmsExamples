@@ -25,7 +25,7 @@ namespace SearchAlgorithms
         /// </summary>
 
         /*Pseudocode
-         * function binary_search(array, Low, Hi, target):
+         * function binarySearch(array, Low, Hi, target):
                 while left <= right:
                     mid = (left + right) // 2
                     if list[mid] == target:
