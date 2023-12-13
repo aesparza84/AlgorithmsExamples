@@ -4,16 +4,27 @@
     {
         static void Main(string[] args)
         {
-            int[] scoreArray = GetAndSort();
-
+            int[] scoreArray = GetScores();
             scoreArray = QuickSort.Sort(scoreArray);
 
-            for (int i = 0; i < scoreArray.Length; i++)
+            //int[] test = new int[] {9,4,5,11,23,7}; 
+            //int[] test = new int[] {1,1,2,3}; 
+            int[] test = GetScores();
+
+            //for (int i = 0; i < scoreArray.Length; i++)
+            //{
+            //    Console.WriteLine(scoreArray[i]);   
+            //}
+
+            Tree myTree = new Tree();
+            for (int i = 0; i < test.Length; i++)
             {
-                Console.WriteLine(scoreArray[i]);   
+                myTree.InsertValue(myTree.rootNode, test[i]);
             }
+
+            int n = 1;
         }
-        public static int[] GetAndSort()
+        public static int[] GetScores()
         {
             FileStuff file = new FileStuff();
             int[] n = file.GetScoresFromFile();
