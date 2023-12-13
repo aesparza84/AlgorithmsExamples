@@ -22,6 +22,9 @@
                 myTree.InsertValue(myTree.rootNode, test[i]);
             }
 
+            //myTree.ContainsValue(76);
+            Console.WriteLine(myTree.ContainsValue(76));
+
             int n = 1;
         }
         public static int[] GetScores()

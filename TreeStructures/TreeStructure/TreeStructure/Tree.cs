@@ -9,15 +9,10 @@ namespace TreeStructure
     public class Tree
     {
         public Node ?rootNode;
+
         public Tree() 
         {
 
-        }
-        public bool ContainsValue(int checkValue)
-        {
-            //Iterate through Tree to see if we already
-            //stored this value
-            return true;
         }
 
         public Node InsertValue(Node currentNode, int newValue) 
@@ -61,6 +56,49 @@ namespace TreeStructure
                 }
             }   
             
+            return temp;
+        }
+
+        public bool ContainsValue(int checkValue) 
+        {
+            Node temp = InOrderSearch(rootNode, checkValue);
+            if (temp.value == checkValue)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private Node InOrderSearch(Node startingNode, int searchValue)
+        {
+            Node temp = null;
+            bool found;
+
+            if (startingNode.leftNode != null)
+            {
+                temp = InOrderSearch(startingNode.leftNode, searchValue);
+            }
+
+            //Reads node-value when LEFT = Null;
+            temp = startingNode;
+            Console.WriteLine($"Value: {temp.value}");
+
+            if (temp.value == searchValue)
+            {
+                Console.WriteLine("Found Node");
+                return temp;
+            }
+
+            if (startingNode.rightNode != null)
+            {
+                temp = InOrderSearch(startingNode.rightNode, searchValue);
+                if (temp.value == searchValue)
+                {
+                    Console.WriteLine("Found Node");
+                    return temp;
+                }
+            }
+
             return temp;
         }
     }
