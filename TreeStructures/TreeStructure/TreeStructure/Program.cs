@@ -4,28 +4,28 @@
     {
         static void Main(string[] args)
         {
-            int[] scoreArray = GetScores();
-            scoreArray = QuickSort.Sort(scoreArray);
+            int[] sortedScores = GetScores();
+            sortedScores = QuickSort.Sort(sortedScores);
 
+            #region Test Arrays
             //int[] test = new int[] {9,4,5,11,23,7}; 
             //int[] test = new int[] {1,1,2,3}; 
-            int[] test = GetScores();
+            #endregion 
+            int[] unsortedScores = GetScores();
 
-            //for (int i = 0; i < scoreArray.Length; i++)
-            //{
-            //    Console.WriteLine(scoreArray[i]);   
-            //}
-
+            //Hover over me when Debugging
             Tree myTree = new Tree();
-            for (int i = 0; i < test.Length; i++)
+
+            for (int i = 0; i < unsortedScores.Length; i++)
             {
-                myTree.InsertValue(myTree.rootNode, test[i]);
+                myTree.InsertValue(myTree.rootNode, unsortedScores[i]);
             }
 
-            //myTree.ContainsValue(76);
-            Console.WriteLine(myTree.ContainsValue(76));
+            //Change my value to see if the score is in the Tree 'myTree'
+            Console.WriteLine(myTree.ContainsValue(726));
 
-            int n = 1;
+            //Breakpoint me to view the Tree 'myTree' and its nodes
+            byte debuggingByte = 1;
         }
         public static int[] GetScores()
         {

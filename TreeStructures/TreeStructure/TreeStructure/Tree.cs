@@ -64,28 +64,51 @@ namespace TreeStructure
             Node temp = InOrderSearch(rootNode, checkValue);
             if (temp.value == checkValue)
             {
+                Console.WriteLine("Found Node");
                 return true;
             }
+            Console.WriteLine("Couldn't Find Node");
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// Follows the LNR (Left-child, Node, Right-child) search pattern.
+        /// From the root, we go down each Node's left child value until there are
+        /// no more left-children. We then check the parent node's value, and then 
+        /// the right child value. 
+        /// 
+        /// If we didn't find the desired value, then we move
+        /// back up to the next parent and repeat this process throughout the ENTIRE
+        /// tree until the end. 
+        /// 
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="startingNode"></param>
+        /// <param name="searchValue"></param>
+        /// <returns></returns>
         private Node InOrderSearch(Node startingNode, int searchValue)
         {
             Node temp = null;
-            bool found;
 
             if (startingNode.leftNode != null)
             {
                 temp = InOrderSearch(startingNode.leftNode, searchValue);
+                if (temp.value == searchValue)
+                {
+                    //Found Node
+                    return temp;
+                }
             }
 
-            //Reads node-value when LEFT = Null;
+            //Reads node-value when LEFT = Null; (When node is considered Parent)
             temp = startingNode;
             Console.WriteLine($"Value: {temp.value}");
 
             if (temp.value == searchValue)
             {
-                Console.WriteLine("Found Node");
+                //Found Node
                 return temp;
             }
 
@@ -94,7 +117,7 @@ namespace TreeStructure
                 temp = InOrderSearch(startingNode.rightNode, searchValue);
                 if (temp.value == searchValue)
                 {
-                    Console.WriteLine("Found Node");
+                    //Found Node
                     return temp;
                 }
             }
