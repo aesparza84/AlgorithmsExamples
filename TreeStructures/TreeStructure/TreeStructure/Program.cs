@@ -22,7 +22,7 @@
             }
 
             //Change my value to see if the score is in the Tree 'myTree'
-            Console.WriteLine(myTree.ContainsValue(726));
+            Console.WriteLine(myTree.ContainsValue(76));
 
             //Breakpoint me to view the Tree 'myTree' and its nodes
             byte debuggingByte = 1;
