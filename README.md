@@ -362,3 +362,16 @@ that goes over Linear Search, Binary Search, and Interpolation Search.
                     else:
                         Hi = mid - 1
                 return -1
+## Week 14 - Tree Data Structure
+This goes over binary tree data structure
+  *      Trees are constructed and organized with nodes. Trees can only have 1 root (entry point) and each node 1 parent.
+         The basic structure is a 'Parent' with at-most 2 child nodes (left & right).
+         Nodes must follow the pattern of [Parent > left child], [Parent < right child].
+     An example of a binary search tree would be:
+ *               7
+                / \
+               4   11
+             /  \ /  \
+            1   6 9   10
+Preorder Traversal would be: **7 4 1 6 11 9 10**
+This takes O(n) time as it goes over every node once.
