@@ -9,7 +9,7 @@ namespace TreeStructure
     public class Node
     {
         public int value;
-        public int Key;
+        public int Key; //If we had a dictionary, we would sort and search by Key-values
 
         public Node ?leftNode;
         public Node ?rightNode;
